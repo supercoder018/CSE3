@@ -1,0 +1,34 @@
+2. Sum of n^2, method defined outside class definition
+#include<iostream>
+using namespace std;
+class square {
+    private:
+    int i,m,s;
+    public:
+    void setdata(int n);
+    void calculation();
+};
+    void square::setdata(int n)
+    {
+        m=n;
+        s=0;
+    }
+    void square::calculation()
+    {
+        for(i=1;i<=m;i++)
+        {
+            s+=i*i;
+        }
+        cout<<"Sum= "<<s<<endl;
+    }
+    int main()
+    {
+    square sm;
+    int n;
+    cout<<"Enter the value of n= ";
+    cin>>n;
+    sm.setdata(n);
+    sm.calculation();
+    return 0;
+    }
+

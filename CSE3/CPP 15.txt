@@ -1,0 +1,79 @@
+16. Single level inheritance
+
+#include<iostream>
+using namespace std;
+class shape {
+    private:
+    double len, br, rad;
+    public:
+    void set_data();
+    double get_len();
+    double get_br();
+    double get_rad();
+};
+class rectangle:public shape
+{  
+    private:
+    double area;
+    public:
+    void rect_area();
+    void display();
+};
+class circle:public shape
+{  
+    private:
+    double area;
+    public:
+    void circ_area();
+    void display();
+};
+void shape::set_data()
+{
+    len=10;
+    br=20;
+    rad=7;
+}
+double shape::get_len()
+{
+    return len;
+}
+double shape::get_br()
+{
+    return br;
+}
+double shape::get_rad()
+{
+    return rad;
+}
+void rectangle::rect_area()
+{
+    area=get_len()*get_br();
+}
+void rectangle::display()
+{
+    cout<<"Length= "<<get_len()<<"\n";
+    cout<<"Breadth= "<<get_br()<<"\n";
+    cout<<"Area of rectangle= "<<area<<"\n\n";
+}
+void circle::circ_area()
+{
+    area=3.14*get_rad()*get_rad();
+}
+void circle::display()
+{
+    cout<<"Radius= "<<get_rad()<<"\n";
+    cout<<"Area of circle= "<<area<<"\n\n";
+}
+int main()
+{
+    rectangle rec;
+    circle cir;
+    rec.set_data();
+    rec.rect_area();
+    rec.display();
+    cir.set_data();
+    cir.circ_area();
+    cir.display();
+    return 0;
+}
+

@@ -1,0 +1,82 @@
+14. Overload << ( left shift) operator to shift an array 
+
+#include<iostream>
+using namespace std;
+class A {
+    private:
+    int *p;
+    int n,i;
+    public:
+    A();
+    A(int);
+    A(const A &);
+    ~A();
+    void setdata();
+    void display();
+    friend void operator <<(A &,int);
+};
+A::A()
+{
+    cout<<"Default constructor called"<<endl;
+    n=0;
+    p=new int[n];
+}
+A::A(int x)
+{
+    cout<<"Parameterized constructor called"<<endl;
+    n=x;
+    p=new int[n];
+}
+A::A(const A &oa)
+{
+    cout<<"Copy constructor called"<<endl;
+    n=oa.n;
+    p=new int[n];
+    for(i=0;i<n;i++)
+    p[i]=oa.p[i];
+}
+A::~A()
+{
+    cout<<"Destructor called"<<endl;
+    delete p;
+}
+void A::setdata()
+{
+    cout<<"Enter data into the array:"<<endl;
+    for(i=0;i<n;i++)
+    cin>>p[i];
+}
+void A::display()
+{
+    for(i=0;i<n;i++)
+    cout<<p[i]<<"\t";
+    cout<<"\n";
+}
+void operator <<(A &a,int x)
+{
+    int i,j;
+    cout<<"Friend function called for << operator overloading"<<endl;
+    for(i=1;i<=x;i++)
+    {
+        for(j=1;j<=a.n-i;j++)
+        a.p[j-1]=a.p[j];
+        a.p[a.n-i]=0;
+    }
+}
+int main()
+{
+    int x;
+    A a1=A(10);
+    a1.setdata();
+    a1.display();
+    A a2=a1;
+    cout<<"Enter the number of left shift=";
+    cin>>x;
+    a1<<x;
+    cout<<"After shifting the current status of the array in object a1:\n";
+    a1.display();
+    cout<<"The current status of the array in object a2:\n";
+    a2.display();
+    return 0;
+}
+

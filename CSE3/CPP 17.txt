@@ -1,0 +1,49 @@
+18. Sorting different data type functions using templates
+
+#include<iostream>
+using namespace std;
+template<class T>
+void sortfunc(T a[],int size)
+{
+    int i,j;
+    T temp;
+    for(i=0;i<size;i++)
+    {
+        for(j=0;j<i;j++)
+        {
+            if(a[j]>a[i])
+            {
+                temp=a[j];
+                a[j]=a[i];
+                a[i]=temp;
+            }
+        }
+    }
+}
+template<class X>
+void printfunc(X a[],int size)
+{
+    int i;
+    for(i=0;i<size;i++)
+    cout<<a[i]<<" ";
+    cout<<endl;
+}
+int main()
+{
+    int x[]={1,5,4,3,2};
+    char y[]={'a','p','c','l','e'};
+    double z[]={1.1,3.4,3.14,2.2,2.16};
+    cout<<"Before sort"<<endl;
+    printfunc(x,5);
+    printfunc(y,5);
+    printfunc(z,5);
+    sortfunc(x,5);
+    sortfunc(y,5);
+    sortfunc(z,5);
+    cout<<"After sort"<<endl;
+    printfunc(x,5);
+    printfunc(y,5);
+    printfunc(z,5);
+    return 0;
+}
+

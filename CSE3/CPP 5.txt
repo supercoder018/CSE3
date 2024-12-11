@@ -1,0 +1,51 @@
+5.⁠ Interest using default argument
+#include<iostream>
+using namespace std;
+class si {
+    private:
+    int principal, period;
+    float rate, interest;
+    public:
+    void setdata(int pr, int pe, float rt=0.07);
+    void display();
+    float calc();
+};
+void si::setdata(int pr, int pe, float rt)
+{
+    principal=pr;
+    period= pe;
+    rate= rt;
+}
+void si::display()
+{
+    cout<<"Principal= "<<principal<<endl;
+    cout<<"Period= "<<period<<endl;
+    cout<<"Rate= "<<rate<<endl;
+}
+float si::calc()
+{
+    return principal*period*rate;
+}
+int main()
+{
+    si obj;
+    int pr, pe;
+    float rt;
+    cout<<"Enter the value of principal= ";
+    cin>>pr;
+    cout<<"Enter the value of period= ";
+    cin>>pe;
+    cout<<"Enter the value of rate= ";
+    cin>>rt;
+    obj.setdata(pr,pe);
+    obj.display();
+    cout<<"Interest= "<<obj.calc()<<endl;
+    obj.setdata(pr,pe,rt);
+    obj.display();
+    cout<<"Interest= "<<obj.calc()<<endl;
+    return 0;
+}
+
+
+
+

@@ -1,0 +1,54 @@
+6. Function overloading concept on non-static function
+
+#include<iostream>
+using namespace std;
+class method_overload {
+    public:
+    int add(int a, int b);
+    int add(int a, int b, int c);
+    double add(int a, double b);
+    double add(double a, int b);
+    void add(double a, double b);
+    void add(float a, float b);
+};
+int method_overload::add(int a,int b)
+{
+    cout<<"in add(int,int)"<<endl;
+    return a+b;
+}
+int method_overload::add(int a,int b,int c)
+{
+    cout<<"in add(int,int,int)"<<endl;
+    return a+b+c;
+}
+double method_overload::add(int a,double b)
+{
+    cout<<"in add(int,double)"<<endl;
+    return a+b;
+}
+double method_overload::add(double a,int b)
+{
+    cout<<"in add(double,int)"<<endl;
+    return a+b;
+}
+void method_overload::add(double a,double b)
+{
+    cout<<"in add(double,double)"<<endl;
+    cout<<a+b<<endl;
+}
+void method_overload::add(float a,float b)
+{
+    cout<<"in add(float,float)"<<endl;
+    cout<<a+b<<endl;
+}
+int main()
+{
+    method_overload mo;
+    cout<<mo.add(50,70)<<endl;
+    cout<<mo.add(50,70,80)<<endl;
+    cout<<mo.add(50,70.85)<<endl;
+    cout<<mo.add(50.15,70)<<endl;
+    mo.add(50.80,70.20);
+    mo.add(50.5F,70.8F);
+    return 0;
+}

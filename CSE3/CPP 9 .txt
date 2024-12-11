@@ -1,0 +1,25 @@
+9. Celsius in parameterized constructor & calculate Fahrenheit in celToFah()
+
+#include <iostream>
+using namespace std;
+class temperature {
+private:
+    double celsius; 
+public:
+    temperature(double tempCelsius) : celsius(tempCelsius) {}
+    double celToFah();
+};
+double temperature::celToFah()
+{
+    return (celsius * 9.0 / 5.0) + 32.0;
+}
+int main() {
+    double tempCelsius;
+    cout << "Enter temperature in Celsius: ";
+    cin >> tempCelsius;
+    temperature temp(tempCelsius);
+    double tempFahrenheit = temp.celToFah();
+    cout << "Equivalent temperature in Fahrenheit: " << tempFahrenheit << endl;
+    return 0;
+}
+

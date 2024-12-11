@@ -1,0 +1,43 @@
+8. Constructor overloading concept
+
+#include<iostream>
+using namespace std;
+class con_over {
+    private:
+    double area;
+    public:
+    con_over(double r);
+    con_over(int l,int b);
+    con_over(int s);
+    void display();
+};
+con_over::con_over(double r)
+{
+    area=3.14*r*r;
+}
+con_over::con_over(int l,int b)
+{
+    area=l*b;
+}
+con_over::con_over(int s)
+{
+    area=s*s;
+}
+void con_over::display()
+{
+    cout<<area<<endl;
+}
+int main()
+{
+    con_over ar1(5.5);
+    con_over ar2(7,10);
+    con_over ar3(5);
+    cout<<"Area of circle= ";
+    ar1.display();
+    cout<<"Area of rectangle= ";
+    ar2.display();
+    cout<<"Area of square= ";
+    ar3.display();
+    return 0;
+}
+

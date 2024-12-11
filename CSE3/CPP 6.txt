@@ -1,0 +1,45 @@
+11. Access static member from own class and from other class
+
+#include<iostream>
+using namespace std;
+class A {
+    private:
+    int a;
+    static int s;
+    public:
+    void setdata();
+    void nsf();
+    static void sf();
+};
+int A::s=10;
+class B {
+    public:
+    static float f;
+};
+float B::f=15.5;
+void A::setdata()
+{
+    a=s;
+}
+void A::nsf()
+{
+    cout<<"In non static member function\n";
+    cout<<"Non static member variable="<<a<<endl;
+    cout<<"Static member variable="<<s<<endl;
+    cout<<"Static member variable from other class="<<B::f<<endl;
+}
+void A::sf()
+{
+    cout<<"In static member function\n";
+    cout<<"Static member variable="<<s<<endl;
+    cout<<"Static member variable from other class="<<B::f<<endl;
+}
+int main()
+{
+    A obj;
+    obj.setdata();
+    obj.nsf();
+    A::sf();
+    return 0;
+}
+

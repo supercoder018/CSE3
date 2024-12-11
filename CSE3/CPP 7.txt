@@ -1,0 +1,52 @@
+7. Function overloading concept on static function
+
+#include<iostream>
+using namespace std;
+class A{
+    private:
+    static int s;
+    public:
+    static void display();
+    static void display(int x);
+
+};
+int A::s=10;
+class B {
+    private:
+    static float f;
+    public:
+    static void display();
+    static void display(float x,float y);
+
+};
+float B::f=5.5;
+void A::display()
+{
+    cout<<"Class A: Static method with no arguments."<<endl;
+    cout<<"s= "<<s<<endl;
+}
+void A::display(int x)
+{
+    cout<<"Class A: Static method with one argument."<<endl;
+    cout<<"x= "<<x<<endl;
+}
+void B::display()
+{
+    cout<<"Class B: Static method with no arguments."<<endl;
+    cout<<"f= "<<f<<endl;
+}
+void B::display(float x,float y)
+{
+    cout<<"Class B: Static method with two arguments."<<endl;
+    cout<<"x= "<<x<<",y= "<<y<<endl;
+}
+int main()
+{
+    A::display();
+    A::display(5);
+    B::display();
+    B::display(7.5,15.5);
+    return 0;
+}
+
+
