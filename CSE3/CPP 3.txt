@@ -1,129 +1,21 @@
-4. Call by value
+3.global variable
+
 #include<iostream>
 using namespace std;
-class callfunc {
-    private:
-    int a,b;
-    public:
-    void set_data(int, int);
-    void display();
-    void func();
-    void call_by_value(int,int);
-};
-void callfunc ::set_data(int x,int y)
-{
-    a=x;
-    b=y;
-}
-void callfunc ::display()
-{
-    cout<<"a= "<<a<<" "<<"b= "<<b<<endl;
-}
-void callfunc ::call_by_value(int x,int y)
-{
-    cout<<"Call by value\n";
-    display();
-    cout<<"x= "<<x<<" "<<"y= "<<y<<endl;
-    x+=10;
-    y+=20;
-    cout<<"x= "<<x<<" "<<"y= "<<y<<endl;
-    display();
-}
-void callfunc ::func()
-{
-    call_by_value(a,b);
-}
+int m=10;  
 int main()
 {
-    callfunc c;
-    c.set_data(100,200);
-    c.func();
+    int m=20;                                    
+    {
+        int k=m;                                         
+        int m=30;                                
+        cout<<"We are in inner block"<<endl; 
+        cout<<"k= "<<k<<endl;                    
+        cout<<"m= "<<m<<endl;                    
+        cout<<"::m= "<<::m<<endl;                
+    }
+    cout<<"We are in main block"<<endl;
+    cout<<"m= "<<m<<endl;                        
+    cout<<"::m= "<<::m<<endl;                  
     return 0;
 }
-
-   Call by address
-#include<iostream>
-using namespace std;
-class callfunc {
-    private:
-    int a,b;
-    public:
-    void set_data(int,int);
-    void display();
-    void call_by_address(int *,int *); 
-    void func();                       
- };                                   
-void callfunc::set_data(int x,int y)
-{
-    a=x;
-    b=y;
-}
-void callfunc::display()
-{
-    cout<<"a= "<<a<<" "<<"b= "<<b<<endl;
-}
-void callfunc::call_by_address(int *x,int *y)
-{
-   cout<<"Call by address\n";
-   display();
-   cout<<"*x= "<<*x<<" "<<"*y= "<<*y<<endl;
-   *x+=10;                       
-   *y+=20;
-   cout<<"*x= "<<*x<<" "<<"*y= "<<*y<<endl;
-   display();
-}
-void callfunc::func()
-{
-    call_by_address(&a,&b);       
-}
-int main()
-{
-    callfunc c;
-    c.set_data(100,200);
-    c.func();
-    return 0;
-}
-
-  Call by reference
-#include<iostream>
-using namespace std;
-class callfunc {
-    private:
-    int a,b;
-    public:
-    void set_data(int,int);
-    void display();
-    void call_by_reference(int &,int &);
-    void func();                        
-};                                       
-void callfunc::set_data(int x,int y)
-{
-    a=x;
-    b=y;
-}
-void callfunc::display()
-{
-    cout<<"a= "<<a<<" "<<"b= "<<b<<endl;
-}
-void callfunc::call_by_reference(int &x,int &y)
-{
-   cout<<"Call by reference\n";
-   display();
-   cout<<"x= "<<x<<" "<<"y= "<<y<<endl;
-   x+=10;                      
-   y+=20;
-   cout<<"x= "<<x<<" "<<"y= "<<y<<endl;
-   display();
-}
-void callfunc::func()
-{
-    call_by_reference(a,b);       
-}
-int main()
-{
-    callfunc c;
-    c.set_data(100,200);
-    c.func();
-    return 0;
-}
-
